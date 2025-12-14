@@ -1,0 +1,2 @@
+import { motion } from 'framer-motion';
+export function MerchantTransactions() { return (<div className="space-y-6"><div><h1 className="text-2xl font-bold">Transactions</h1><p className="text-muted-foreground">View incoming payments from customers.</p></div><motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="glass rounded-xl p-12 text-center"><p className="text-muted-foreground">Transaction history coming soon...</p></motion.div></div>); }

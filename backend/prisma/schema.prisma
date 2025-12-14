@@ -1,0 +1,53 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model VaultActivity {
+  id           String   @id @default(cuid())
+  vaultAddress String
+  merchantId   Int
+  amount       String
+  tokenAddress String
+  txHash       String
+  requestUrl   String?
+  status       String   // 'pending' | 'success' | 'failed'
+  createdAt    DateTime @default(now())
+
+  @@index([vaultAddress])
+  @@index([merchantId])
+}
+
+model MerchantApi {
+  id           Int      @id @default(autoincrement())
+  merchantId   Int
+  adminAddress String
+  apiName      String
+  baseUrl      String
+  pricePerCall String
+  chainId      Int      // 137 for Polygon mainnet
+  tokenAddress String
+  createdAt    DateTime @default(now())
+
+  @@index([adminAddress])
+  @@index([merchantId])
+}
+
+model Agent {
+  id                    Int      @id @default(autoincrement())
+  orgAddress            String
+  name                  String
+  description           String?
+  agentKey              String   @unique
+  allowedVaultAddresses String   // JSON string array
+  createdAt             DateTime @default(now())
+
+  @@index([orgAddress])
+}

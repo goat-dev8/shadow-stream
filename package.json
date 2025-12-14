@@ -1,0 +1,29 @@
+{
+    "name": "shadowstream",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Private x402 agent wallets for stablecoin micropayments on Polygon",
+    "workspaces": [
+        "web/shadowstream-dashboard-main",
+        "backend",
+        "contracts"
+    ],
+    "scripts": {
+        "dev:web": "cd web/shadowstream-dashboard-main && npm run dev",
+        "dev:backend": "cd backend && npm run dev",
+        "build:web": "cd web/shadowstream-dashboard-main && npm run build",
+        "build:backend": "cd backend && npm run build",
+        "test:contracts": "cd contracts && npx hardhat test",
+        "compile:contracts": "cd contracts && npx hardhat compile",
+        "deploy:polygon": "cd contracts && npx hardhat run scripts/deploy.ts --network polygon"
+    },
+    "keywords": [
+        "web3",
+        "polygon",
+        "stablecoin",
+        "micropayments",
+        "x402"
+    ],
+    "author": "",
+    "license": "MIT"
+}

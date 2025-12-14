@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+dist/
+build/
+coverage/
+
+# Environment Variables (CRITICAL)
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Hardhat
+/contracts/cache/
+/contracts/artifacts/
+/contracts/typechain-types/
+
+# Backend
+/backend/dist/
+/backend/build/
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store
